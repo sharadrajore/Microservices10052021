@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import com.zensar.entities.Coupon;
 import com.zensar.repository.CouponRepository;
 
-
 @Service
 public class CouponServiceImpl implements CouponService {
 
@@ -15,6 +14,11 @@ public class CouponServiceImpl implements CouponService {
 
 	public Coupon saveCoupon(Coupon coupon) {
 		return repository.save(coupon);
+	}
+
+	@Override
+	public Coupon getCoupon(String couponCode) {
+		return repository.findByCouponCode(couponCode);
 	}
 
 }

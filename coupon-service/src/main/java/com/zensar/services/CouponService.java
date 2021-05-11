@@ -6,4 +6,6 @@ public interface CouponService {
 
 	public Coupon saveCoupon(Coupon coupon);
 
+	public Coupon getCoupon(String couponCode);
+
 }

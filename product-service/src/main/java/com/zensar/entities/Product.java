@@ -25,6 +25,8 @@ public class Product {
 	
 	private String description;
 	
-	private int productPrice;
+	private long productPrice;
+	
+	private String couponCode;
 
 }
