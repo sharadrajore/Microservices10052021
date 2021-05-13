@@ -30,7 +30,7 @@ public class ProductResource {
 
 // http://localhost:8080/productapi/products  ----> POST
 	@PostMapping("/products")
-	@Retry(name = "product-api")
+	@Retry(name = "product-api",fallbackMethod = "handleError")
 	public Product createProduct(@RequestBody Product product) {
 
 		Coupon coupon = client.getCoupon(product.getCouponCode());
@@ -42,6 +42,12 @@ public class ProductResource {
 		product.setProductPrice(product.getProductPrice() - (coupon.getDiscount()));
 
 		return service.insertProduct(product);
+	}
+	
+	public Product handleError(Product product,Exception exception) {
+		System.out.println("Sorry,service is unavailable");
+		return product;
+		
 	}
 
 	
