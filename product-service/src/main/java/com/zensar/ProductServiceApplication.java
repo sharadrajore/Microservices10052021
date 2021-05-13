@@ -14,21 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableFeignClients
 @RestController
 @RefreshScope
+
+// http://localhost:9000/actuator/refresh  -> POST
 public class ProductServiceApplication {
 	
-	@Value("${eureka.instance.hostname}")
-	private String hostName;
+	//@Value("${eureka.instance.hostname}")
+	//private String hostName;
 	
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProductServiceApplication.class, args);
 	}
 	
-	@GetMapping("/config")
-	public String getConfiguration() {
-		return hostName;
-	}
-	
+	/*
+	 * @GetMapping("/config") public String getConfiguration() { return hostName; }
+	 */
 	
 	
 	

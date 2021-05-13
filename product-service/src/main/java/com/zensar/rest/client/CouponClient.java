@@ -9,7 +9,7 @@ import com.zensar.entities.Coupon;
 @FeignClient("GATEWAY-SERVICE")
 public interface CouponClient {
 	
-	@GetMapping("/couponapi/coupons/{code}")
+	@GetMapping("/couponapi/coupon/{code}")
 	Coupon getCoupon(@PathVariable("code")String couponCode);
 
 }

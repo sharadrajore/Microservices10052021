@@ -11,6 +11,8 @@ import com.zensar.entities.Product;
 import com.zensar.rest.client.CouponClient;
 import com.zensar.services.ProductService;
 
+import io.github.resilience4j.retry.annotation.Retry;
+
 @RestController
 @RequestMapping("/productapi")
 public class ProductResource {
@@ -28,6 +30,7 @@ public class ProductResource {
 
 // http://localhost:8080/productapi/products  ----> POST
 	@PostMapping("/products")
+	@Retry(name = "product-api")
 	public Product createProduct(@RequestBody Product product) {
 
 		Coupon coupon = client.getCoupon(product.getCouponCode());
