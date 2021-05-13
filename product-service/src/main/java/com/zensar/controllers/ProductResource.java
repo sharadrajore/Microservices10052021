@@ -23,7 +23,7 @@ public class ProductResource {
 
 	@Autowired
 	private ProductService service;
-
+// http://localhost:8080/productapi/products  ----> POST
 	@PostMapping("/products")
 	public Product createProduct(@RequestBody Product product) {
 		
